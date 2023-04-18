@@ -216,12 +216,12 @@ button.disable {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 20%);
+  grid-template-columns: repeat(5, calc(50vh / 5));
+  width: fit-content;
 }
 
 .grid_container {
   position: relative;
-  width: 80vw;
 }
 
 #info_menu {

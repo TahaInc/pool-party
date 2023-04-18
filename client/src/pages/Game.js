@@ -51,6 +51,7 @@ function Game(props) {
     setPlayerAmount(props.filter.playerAmount);
     setWagerAmount(props.filter.wagerAmount);
     setupMultiplier(props.filter.playerAmount);
+    setGameCode(props.filter.gameCode);
 
     socket.on("awaiting-players", () => {
       setGameFound(false);
@@ -121,7 +122,7 @@ function Game(props) {
 
   useEffect(() => {
     socket = io("/", {
-      path: window.location.pathname + "/socket.io/",
+      path: window.location.pathname + "socket.io/",
     });
 
     socket.on("connect", playGame);
@@ -134,7 +135,7 @@ function Game(props) {
     return () => {
       if (socket?.connected) socket?.disconnect();
     };
-  }, [props]);
+  }, [props.filter.gameCode]);
 
   let prevMouseX, prevMouseY;
   function updateMouse(event) {
