@@ -120,7 +120,7 @@ function Game(props) {
   }
 
   useEffect(() => {
-    socket = io.connect(process.env.PUBLIC_URL, { transports: ["websocket"] });
+    socket = io();
 
     socket.on("connect", playGame);
 
