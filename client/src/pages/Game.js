@@ -120,6 +120,7 @@ function Game(props) {
   }
 
   useEffect(() => {
+    console.log(window.location.href.replace(/^https?:\/\//, ""));
     socket = io(window.location.href.replace(/^https?:\/\//, ""));
 
     socket.on("connect", playGame);
