@@ -120,7 +120,7 @@ function Game(props) {
   }
 
   useEffect(() => {
-    socket = io();
+    socket = io(process.env.PUBLIC_URL);
 
     socket.on("connect", playGame);
 
